@@ -5,6 +5,7 @@ const Navbar = () => {
   const { isSidebarOpen } = useSelector((state) => state.Sidebar);
   return (
     <header
+      id="navbar"
       className={`${
         isSidebarOpen ? "w-[calc(100vw-15rem)]" : " w-[calc(100vw-6rem)]"
       } fixed top-0 bg-white h-16 border border-gray z-10 flex items-center`}

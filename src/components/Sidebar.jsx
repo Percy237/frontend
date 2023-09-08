@@ -16,7 +16,7 @@ const Sidebar = () => {
   const { isSidebarOpen } = useSelector((state) => state.Sidebar);
   const dispatch = useDispatch();
   return (
-    <div
+    <div id="sidebar"
       className={`fixed h-full duration-300 top-0 left-0 z-20 bg-green ${
         isSidebarOpen ? "w-56" : "w-20"
       }`}

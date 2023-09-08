@@ -2,7 +2,7 @@ import LoginForm from "../components/LoginForm";
 
 const Login = () => {
   return (
-    <div className="flex w-screen h-screen relative">
+    <div id="login" className="flex w-screen h-screen relative">
       <div className="flex-1 bg-green"></div>
       <div className="flex-1"></div>
       <div className="absolute flex w-[90vw] h-[90vh] top-[5%] left-[5%] border rounded-md shadow-md shadow-black">
@@ -23,4 +23,3 @@ const Login = () => {
 };
 
 export default Login;
-

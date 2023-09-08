@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 const Hospital = () => {
   const {isSidebarOpen} = useSelector(state => state.Sidebar)
   return (
-    <div className="flex bg-white-1">
+    <div id="hospital" className="flex bg-white-1">
       <Sidebar />
       <div
         className={`flex-1 duration-300  ${isSidebarOpen ? "mx-56" : "mx-20"}`}
