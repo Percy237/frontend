@@ -50,9 +50,8 @@ export const FormInput = ({
 const InputError = ({ message }) => {
   return (
     <motion.small
-      className="flex items-center gap-1 px-2 font-semibold rounded-md"
+      className="flex items-center gap-1 px-2 font-semibold rounded-md text-red"
       {...framer_error}
-      style={{ color: "red" }}
     >
       {message}
     </motion.small>

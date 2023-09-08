@@ -1,6 +1,6 @@
-import LoginForm from "../components/LoginForm";
+import HospitalForm from "../components/HospitalForm";
 
-const Login = () => {
+const CreateHospitalAccount = () => {
   return (
     <div className="flex w-screen h-screen relative">
       <div className="flex-1 bg-green"></div>
@@ -11,16 +11,14 @@ const Login = () => {
         </div>
         <div className="flex-1 grid place-content-center">
           <div className="text-center mb-5">
-            <h1 className="font-bold mb-5">SIGN IN</h1>
-            <p>Sign in by entering the information below</p>
+            <h1 className="font-bold mb-5">Create Hospital Account</h1>
+            <p>Use the form below to create an account</p>
           </div>
-          <LoginForm />
-          <p className="text-center mt-2">Forgot password?</p>
+          <HospitalForm />
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
-
+export default CreateHospitalAccount;

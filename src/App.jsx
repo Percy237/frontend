@@ -1,9 +1,9 @@
-import Login from "./views/Login";
+import Hospital from "./views/Hospital";
 
 function App() {
   return (
     <>
-      <Login />
+      <Hospital />
     </>
   );
 }
