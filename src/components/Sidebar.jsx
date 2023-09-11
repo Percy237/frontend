@@ -11,12 +11,14 @@ import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { GiDeathStar } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar } from "../redux/sidebar";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const { isSidebarOpen } = useSelector((state) => state.Sidebar);
   const dispatch = useDispatch();
   return (
-    <div id="sidebar"
+    <div
+      id="sidebar"
       className={`fixed h-full duration-300 top-0 left-0 z-20 bg-green ${
         isSidebarOpen ? "w-56" : "w-20"
       }`}
@@ -46,10 +48,12 @@ const Sidebar = () => {
           >
             MAIN MENU
           </h3>
-          <div className="capitalize hover:bg-dark-blue hover:text-white p-1 cursor-pointer flex  items-center gap-1">
-            <MdOutlineDashboard />
-            <div className={`${!isSidebarOpen && "hidden"}`}>Dashboard</div>
-          </div>
+          <NavLink to=".">
+            <div className="capitalize hover:bg-dark-blue hover:text-white p-1 cursor-pointer flex  items-center gap-1">
+              <MdOutlineDashboard />
+              <div className={`${!isSidebarOpen && "hidden"}`}>Dashboard</div>
+            </div>
+          </NavLink>
           <h3
             className={`text-dark-blue font-bold text-xs uppercase ${
               !isSidebarOpen && "hidden"
@@ -57,14 +61,18 @@ const Sidebar = () => {
           >
             Declarations
           </h3>
-          <div className="capitalize hover:bg-dark-blue hover:text-white p-1 cursor-pointer flex  items-center gap-1">
-            <LiaBirthdayCakeSolid />{" "}
-            <div className={`${!isSidebarOpen && "hidden"}`}>Birth</div>
-          </div>
-          <div className="capitalize hover:bg-dark-blue hover:text-white p-1 cursor-pointer flex  items-center gap-1">
-            <GiDeathStar />{" "}
-            <div className={`${!isSidebarOpen && "hidden"}`}>Death</div>
-          </div>
+          <NavLink to="birth">
+            <div className="capitalize hover:bg-dark-blue hover:text-white p-1 cursor-pointer flex  items-center gap-1">
+              <LiaBirthdayCakeSolid />{" "}
+              <div className={`${!isSidebarOpen && "hidden"}`}>Birth</div>
+            </div>
+          </NavLink>
+          <NavLink to="death">
+            <div className="capitalize hover:bg-dark-blue hover:text-white p-1 cursor-pointer flex  items-center gap-1">
+              <GiDeathStar />{" "}
+              <div className={`${!isSidebarOpen && "hidden"}`}>Death</div>
+            </div>
+          </NavLink>
           <h3
             className={`text-dark-blue font-bold text-xs uppercase ${
               !isSidebarOpen && "hidden"

@@ -2,8 +2,8 @@ import { PureComponent } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
+  { name: "Birth", value: 400 },
+  { name: "Death", value: 300 },
 
 ];
 

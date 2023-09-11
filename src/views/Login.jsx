@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 
 const Login = () => {
@@ -15,7 +16,11 @@ const Login = () => {
             <p>Sign in by entering the information below</p>
           </div>
           <LoginForm />
-          <p className="text-center mt-2">Forgot password?</p>
+          <NavLink to="forgotpassword">
+            <p className="text-center mt-2 cursor-pointer text-dark-blue underline">
+              Forgot password?
+            </p>
+          </NavLink>
         </div>
       </div>
     </div>
