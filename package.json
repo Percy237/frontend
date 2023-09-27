@@ -10,11 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.8",
+    "@mui/material": "^5.14.8",
     "@reduxjs/toolkit": "^1.9.5",
     "caniuse-lite": "^1.0.30001525",
     "framer-motion": "^10.16.2",
+    "primereact": "^9.6.2",
     "proptypes": "^1.1.0",
     "react": "^18.2.0",
+    "react-data-table-component": "^7.5.4",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.46.0",
     "react-icons": "^4.10.1",

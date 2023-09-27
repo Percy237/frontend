@@ -2,7 +2,7 @@ import { FormProvider } from "react-hook-form";
 import { FormInput } from "./FormInput";
 import { useForm } from "react-hook-form";
 
-const HospitalForm = () => {
+const RegistrarForm = () => {
   const methods = useForm();
   const onSubmit = methods.handleSubmit((data) => {
     console.log(data);
@@ -12,11 +12,11 @@ const HospitalForm = () => {
       <form onSubmit={(e) => e.preventDefault()} autoComplete="off" noValidate>
         <div className="grid grid-cols-2 gap-x-10">
           <FormInput
-            label="hospital name"
-            name="hospital name"
+            label="Registrar Name"
+            name="registrar name"
             type="text"
             id="name"
-            placeholder="Enter Hospital name..."
+            placeholder="Enter registrar name..."
             validation={{
               required: {
                 value: true,
@@ -30,19 +30,15 @@ const HospitalForm = () => {
           />
 
           <FormInput
-            label="head of hospital"
-            name="head of hospital"
+            label="matricule number"
+            name="matricule number"
             type="text"
-            id="head of hospital"
-            placeholder="Enter Head of Hospital..."
+            id="matricule number"
+            placeholder="Enter matricule number..."
             validation={{
               required: {
                 value: true,
                 message: "required",
-              },
-              minLength: {
-                value: 3,
-                message: "min 3 characters",
               },
             }}
           />
@@ -103,15 +99,17 @@ const HospitalForm = () => {
             }}
           />
         </div>
-        <button
-          onClick={onSubmit}
-          className="w-full p-3 font-medium border rounded-md border-slate-300 mt-4 bg-green cursor-pointer active:bg-dark-blue"
-        >
-          Create
-        </button>
+        <div className="text-center">
+          <button
+            onClick={onSubmit}
+            className="w-1/3  p-3 font-medium border rounded-md border-slate-300 mt-4 bg-green cursor-pointer active:bg-dark-blue"
+          >
+            Create
+          </button>
+        </div>
       </form>
     </FormProvider>
   );
 };
 
-export default HospitalForm;
+export default RegistrarForm;

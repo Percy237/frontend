@@ -10,28 +10,27 @@ import { GiDeathStar } from "react-icons/gi";
 
 export const SidebarData = [
   {
+    title: "dashboard",
+    path: ".",
+  },
+  {
     title: "birth",
     path: "birth",
-    icon: <LiaBirthdayCakeSolid />,
   },
   {
     title: "death",
     path: "death",
-    icon: <GiDeathStar />,
   },
   {
     title: "Files & Folders",
     path: "files",
-    icon: <MdOutlineFolderShared />,
   },
   {
     title: "settings",
-    path: "settings",
-    icon: <MdOutlineSettings />,
+    path: "setting",
   },
   {
     title: "logout",
     path: "logout",
-    icon: <MdLogout />,
   },
 ];

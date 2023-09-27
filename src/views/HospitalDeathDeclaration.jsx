@@ -19,7 +19,6 @@ const HospitalDeathDeclaration = () => {
         </NavLink>
       </div>
       <div>
-        <Outlet />
       </div>
     </div>
   );

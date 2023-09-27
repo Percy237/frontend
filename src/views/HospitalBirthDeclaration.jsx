@@ -1,25 +1,13 @@
-import { FaPlus } from "react-icons/fa";
-import { NavLink, Outlet } from "react-router-dom";
+import TotalCard from "../components/TotalCard";
+import HospitalDashboardtable from "../tables/HospitalDashboardtable";
 
 const HospitalBirthDeclaration = () => {
   return (
     <div>
       <div className="flex w-full gap-x-2 ">
-        <NavLink to=".">
-          <div className="flex items-center gap-x-1 capitalize bg-white rounded-md w-[300px] shadow-md h-20 justify-center cursor-pointer hover:bg-gray-3">
-            View birth declarations
-          </div>
-        </NavLink>
-        <NavLink to="create">
-          <div className="flex items-center gap-x-1 capitalize bg-white w-[300px] rounded-md shadow-md h-20 justify-center cursor-pointer hover:bg-gray-3">
-            <FaPlus className="text-green text-xl" />
-            Create birth Declaration
-          </div>
-        </NavLink>
+        <TotalCard total="100" text="Total Birth Declaration" />
       </div>
-      <div>
-        <Outlet />
-      </div>
+      <HospitalDashboardtable />
     </div>
   );
 };
