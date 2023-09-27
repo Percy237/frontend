@@ -13,7 +13,7 @@ const HospitalForm = () => {
         <div className="grid grid-cols-2 gap-x-10">
           <FormInput
             label="hospital name"
-            name="hospital name"
+            name="hospital_name"
             type="text"
             id="name"
             placeholder="Enter Hospital name..."
@@ -22,7 +22,7 @@ const HospitalForm = () => {
                 value: true,
                 message: "required",
               },
-              maxLength: {
+              mixLength: {
                 value: 3,
                 message: "min 3 characters",
               },
@@ -31,7 +31,7 @@ const HospitalForm = () => {
 
           <FormInput
             label="head of hospital"
-            name="head of hospital"
+            name="head_of_hospital"
             type="text"
             id="head of hospital"
             placeholder="Enter Head of Hospital..."
@@ -49,7 +49,7 @@ const HospitalForm = () => {
 
           <FormInput
             label="mobile number"
-            name="mobile number"
+            name="mobile_number"
             type="text"
             id="mobile number"
             placeholder="Enter mobile number..."
