@@ -1,28 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCallback } from "react";
 import { useMemo } from "react";
 import DataTable from "react-data-table-component";
 import { FaPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { getAllHospitals } from "../api/hospitalApi";
 
 const SecretaryListOfHospitals = () => {
-  const columns = useMemo(() => [
-    {
-      name: "ID",
-      selector: (row) => row.id,
-      sortable: true,
-    },
-    {
-      name: "Name",
-      selector: (row) => row.name,
-      sortable: true,
-    },
-    {
-      name: "Type",
-      selector: (row) => row.type,
-    },
-  ]);
-
   const data = [
     {
       id: "ID983732",
@@ -40,10 +24,40 @@ const SecretaryListOfHospitals = () => {
       type: "private",
     },
   ];
+  const test = async () => {
+    setHospitalList(await getAllHospitals());
+  };
+
+  useEffect(() => {
+    // async function getHospitals() {
+    //   setHospitalList(getAllHospitals());
+    // }
+    return () => test();
+  }, []);
+  const columns = useMemo(() => [
+    {
+      name: "id",
+      selector: (row) => row._id,
+      sortable: true,
+    },
+    {
+      name: "Email",
+      selector: (row) => row.email,
+      sortable: true,
+    },
+    {
+      name: "Type",
+      selector: (row) => row.type,
+    },
+  ]);
+
+  //Loading data
+  // console.log(getAllHospitals());
 
   const [selectedRows, setSelectedRows] = useState([]);
   const [toggleCleared, setToggleCleared] = useState(false);
   const [records, setRecords] = useState(data);
+  const [hospitalList, setHospitalList] = useState([]);
 
   const handleRowSelected = useCallback((state) => {
     setSelectedRows(state.selectableRows);
@@ -88,7 +102,7 @@ const SecretaryListOfHospitals = () => {
       <DataTable
         title="All Hospitals"
         columns={columns}
-        data={data}
+        data={hospitalList}
         selectableRows
         contextActions={contextActions}
         onSelectedRowsChange={handleRowSelected}

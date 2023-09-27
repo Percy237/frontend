@@ -1,6 +1,5 @@
 import { useFormContext } from "react-hook-form";
 
-
 import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 import { findInputError } from "../utils/findInputError";
@@ -19,7 +18,7 @@ export const FormInput = ({
     formState: { errors },
   } = useFormContext();
 
-  const inputError = findInputError(errors, label);
+  const inputError = findInputError(errors, name);
   const isInvalid = isFormInvalid(inputError);
   return (
     <div className="flex flex-col w-full gap-2 mt-3">

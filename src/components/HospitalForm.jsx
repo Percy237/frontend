@@ -1,30 +1,57 @@
 import { FormProvider } from "react-hook-form";
 import { FormInput } from "./FormInput";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { BsFillCheckSquareFill } from "react-icons/bs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { createHospital } from "../api/hospitalApi";
+import { useNavigate } from "react-router";
 
 const HospitalForm = () => {
-  const methods = useForm();
-  const onSubmit = methods.handleSubmit((data) => {
-    console.log(data);
+  const navigate = useNavigate();
+  const methods = useForm({
+    defaultValues: {
+      hospital_name: "dfdfd",
+      head_of_hospital: "Royce",
+      type: "District",
+      email: "test@gmail.com",
+      phone_number: "671274012",
+      region: "Center",
+      division: "Mbalmayo",
+      sub_division: "Test",
+    },
   });
+
+  const onSubmit = methods.handleSubmit(async (data) => {
+    try {
+      await createHospital(data);
+      toast.success("Hospital account created", { autoClose: 3000 });
+      setTimeout(() => {
+        navigate("/secretary/hospital");
+      }, 3000);
+      methods.reset();
+    } catch (error) {
+      toast.error("An error occurred");
+    }
+  });
+
   return (
     <FormProvider {...methods}>
-      <form onSubmit={(e) => e.preventDefault()} autoComplete="off" noValidate>
+      <ToastContainer />
+
+      <form onSubmit={(e) => e.preventDefault()} noValidate className="mb-5">
         <div className="grid grid-cols-2 gap-x-10">
           <FormInput
-            label="hospital name"
+            label="Hospital Name"
             name="hospital_name"
             type="text"
-            id="name"
+            id="hospital_name"
             placeholder="Enter Hospital name..."
             validation={{
               required: {
                 value: true,
                 message: "required",
-              },
-              mixLength: {
-                value: 3,
-                message: "min 3 characters",
               },
             }}
           />
@@ -33,26 +60,36 @@ const HospitalForm = () => {
             label="head of hospital"
             name="head_of_hospital"
             type="text"
-            id="head of hospital"
+            id="head_of_hospital"
             placeholder="Enter Head of Hospital..."
             validation={{
               required: {
                 value: true,
                 message: "required",
               },
-              minLength: {
-                value: 3,
-                message: "min 3 characters",
+            }}
+          />
+
+          <FormInput
+            label="type"
+            name="type"
+            type="text"
+            id="type"
+            placeholder="Enter type of Hospital..."
+            validation={{
+              required: {
+                value: true,
+                message: "required",
               },
             }}
           />
 
           <FormInput
-            label="mobile number"
-            name="mobile_number"
+            label="Phone number"
+            name="phone_number"
             type="text"
-            id="mobile number"
-            placeholder="Enter mobile number..."
+            id="phone_number"
+            placeholder="Enter phone number..."
             validation={{
               required: {
                 value: true,
@@ -85,6 +122,56 @@ const HospitalForm = () => {
           />
 
           <FormInput
+            label="region"
+            name="region"
+            type="text"
+            id="region"
+            placeholder="Enter region name..."
+            validation={{
+              required: {
+                value: true,
+                message: "required",
+              },
+            }}
+          />
+
+          <FormInput
+            label="division"
+            name="division"
+            type="text"
+            id="division"
+            placeholder="Enter division name..."
+            validation={{
+              required: {
+                value: true,
+                message: "required",
+              },
+              mixLength: {
+                value: 3,
+                message: "min 3 characters",
+              },
+            }}
+          />
+
+          <FormInput
+            label="sub division"
+            name="sub_division"
+            type="text"
+            id="sub_division"
+            placeholder="Enter sub division name..."
+            validation={{
+              required: {
+                value: true,
+                message: "required",
+              },
+              mixLength: {
+                value: 3,
+                message: "min 3 characters",
+              },
+            }}
+          />
+
+          {/* <FormInput
             label="password"
             name="password"
             type="password"
@@ -101,7 +188,7 @@ const HospitalForm = () => {
                 message: "8 char, 1 number, 1 letter, 1 symbol.",
               },
             }}
-          />
+          /> */}
         </div>
         <button
           onClick={onSubmit}
