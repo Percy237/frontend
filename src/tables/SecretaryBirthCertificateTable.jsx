@@ -5,21 +5,8 @@ import { FaPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useMemo } from "react";
 
-const HospitalDashboardtable = () => {
+const SecretaryBirthCertificateTable = () => {
   const columns = useMemo(() => [
-    {
-      cell: () => (
-        <button
-          className="border border-green rounded-md hover:bg-dark-blue hover:text-white p-2"
-          onClick={handleButtonClick}
-        >
-          Send
-        </button>
-      ),
-      ignoreRowClick: true,
-      allowOverflow: true,
-      button: true,
-    },
     {
       name: "ID",
       selector: (row) => row.id,
@@ -31,17 +18,35 @@ const HospitalDashboardtable = () => {
       sortable: true,
     },
     {
-      name: "Mobile number",
-      selector: (row) => row.mobileNumber,
+      name: "Date",
+      selector: (row) => row.date,
       sortable: true,
     },
     {
-      name: "Type",
-      selector: (row) => row.type,
+      cell: () => (
+        <button
+          className="border border-green rounded-md hover:bg-dark-blue hover:text-white p-2"
+          onClick={handleButtonClick}
+        >
+          Update
+        </button>
+      ),
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
     },
     {
-      name: "Status",
-      selector: (row) => row.status,
+      cell: () => (
+        <button
+          className="border border-green rounded-md hover:bg-dark-blue hover:text-white p-2"
+          onClick={handleButtonClick}
+        >
+          Print
+        </button>
+      ),
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
     },
   ]);
 
@@ -49,93 +54,67 @@ const HospitalDashboardtable = () => {
     {
       id: "ID983732",
       name: "Tsembom",
-      mobileNumber: "692201677",
-      type: "Birth",
-      status: "Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID983767",
       name: "Takwendo",
-      mobileNumber: "682201678",
-      type: "Death",
-      status: "Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID1843732",
       name: "Linkwe",
-      mobileNumber: "678201607",
-      type: "Birth",
-      status: "Not sent",
+      date: "9/27/2023",
     },
     {
       id: "ID9876832",
       name: "Joyce",
-      mobileNumber: "692201677",
-      type: "Death",
-      status: "Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID9835877",
       name: "Tsague",
-      mobileNumber: "692728320",
-      type: "Birth",
-      status: "Not Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID983732",
       name: "Tsembom",
-      mobileNumber: "692201677",
-      type: "Birth",
-      status: "Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID983767",
       name: "Takwendo",
-      mobileNumber: "682201678",
-      type: "Death",
-      status: "Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID983767",
       name: "Takwendo",
-      mobileNumber: "682201678",
-      type: "Death",
-      status: "Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID1843732",
       name: "Linkwe",
-      mobileNumber: "678201607",
-      type: "Birth",
-      status: "Not sent",
+      date: "9/27/2023",
     },
     {
       id: "ID9876832",
       name: "Joyce",
-      mobileNumber: "692201677",
-      type: "Death",
-      status: "Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID9835877",
       name: "Tsague",
-      mobileNumber: "692728320",
-      type: "Birth",
-      status: "Not Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID983732",
       name: "Tsembom",
-      mobileNumber: "692201677",
-      type: "Birth",
-      status: "Sent",
+      date: "9/27/2023",
     },
     {
       id: "ID983767",
       name: "Takwendo",
-      mobileNumber: "682201678",
-      type: "Death",
-      status: "Sent",
+      date: "9/27/2023",
     },
   ];
 
@@ -155,13 +134,13 @@ const HospitalDashboardtable = () => {
   };
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 bg-white rounded-md">
       <div className=" h-12 flex justify-between items-center">
-        <p>All Declarations</p>
+        <p>All Birth Certificates</p>
         <div className="flex">
           <div className="flex gap-x-2 justify-center cursor-pointer rounded-md items-center bg-green w-20 h-25">
             <NavLink
-              to="/create-birth-declaration"
+              to="/create-birth-certificate"
               className="flex items-center"
             >
               <FaPlus />
@@ -185,4 +164,4 @@ const HospitalDashboardtable = () => {
   );
 };
 
-export default HospitalDashboardtable;
+export default SecretaryBirthCertificateTable;

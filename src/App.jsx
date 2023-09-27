@@ -16,10 +16,13 @@ import SecretaryDashboard from "./views/SecretaryDashboard";
 import SecretaryCivilRegistrar from "./views/SecretaryCivilRegistrar";
 import Hospital from "./components/Hospital";
 import CreateCivilRegistrar from "./views/CreateCivilRegistrar";
-import RegistrarBirth from "./views/RegistrarBirth";
+import SecretaryBirth from "./views/SecretaryBirth";
 import BirthCertificate from "./views/BirthCertificate";
 import BirthDeclaration from "./views/BirthDeclaration";
 import HospitalDashboardtable from "./tables/HospitalDashboardtable";
+import AdminLayout from "./layouts/AdminLayout";
+import AdminDashboard from "./views/AdminDashboard";
+import AdminSecretary from "./views/AdminSecretary";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +31,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "birth-certificate",
+    path: "create-birth-certificate",
     element: <BirthCertificate />,
   },
   {
@@ -93,7 +96,7 @@ const router = createBrowserRouter([
       },
       {
         path: "birth-certificate",
-        element: <RegistrarBirth />,
+        element: <SecretaryBirth />,
         children: [
           {
             index: ".",
@@ -105,6 +108,20 @@ const router = createBrowserRouter([
           },
           {},
         ],
+      },
+    ],
+  },
+  {
+    path: "admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        index: ".",
+        element: <AdminDashboard />,
+      },
+      {
+        path: "secretary",
+        element: <AdminSecretary />,
       },
     ],
   },
