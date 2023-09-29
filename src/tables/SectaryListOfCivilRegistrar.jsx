@@ -14,16 +14,28 @@ const SectaryListOfCivilRegistrar = () => {
       name: "ID",
       selector: (row) => row._id,
       sortable: true,
+      omit: true,
     },
     {
       name: "Name",
-      selector: (row) => row.name,
+      selector: (row) => row.user.name,
       sortable: true,
     },
 
     {
+      name: "Matricule Number",
+      selector: (row) => row.user.matricule_number,
+      sortable: true,
+    },
+    {
       name: "Email",
-      selector: (row) => row.email,
+      selector: (row) => row.user.email,
+      sortable: true,
+    },
+
+    {
+      name: "Council",
+      selector: (row) => row.council,
       sortable: true,
     },
     {

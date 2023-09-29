@@ -9,14 +9,15 @@ export const BirthDeclarationInput = ({
   label,
   labelwidth,
   inputWidth,
+  name,
 }) => {
-      const {
-        register,
-        formState: { errors },
-      } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
-      const inputError = findInputError(errors, label);
-      const isInvalid = isFormInvalid(inputError);
+  const inputError = findInputError(errors, name);
+  const isInvalid = isFormInvalid(inputError);
   return (
     <div>
       <label
@@ -30,7 +31,7 @@ export const BirthDeclarationInput = ({
         type={type}
         style={{ width: inputWidth }}
         className="border-b-2 border-dashed outline-none italic"
-        {...register(label, {
+        {...register(name, {
           required: {
             value: true,
             message: "required",
@@ -48,7 +49,6 @@ export const BirthDeclarationInput = ({
     </div>
   );
 };
-
 
 const InputError = ({ message }) => {
   return (
@@ -73,4 +73,5 @@ BirthDeclarationInput.propTypes = {
   labelwidth: PropTypes.string,
   inputWidth: PropTypes.string,
   type: PropTypes.string,
+  name: PropTypes.string,
 };

@@ -33,9 +33,6 @@ const SecretaryListOfHospitals = () => {
   };
 
   useEffect(() => {
-    // async function getHospitals() {
-    //   setHospitalList(getAllHospitals());
-    // }
     const timeout = setTimeout(() => {
       test();
       setPending(false);
@@ -48,15 +45,26 @@ const SecretaryListOfHospitals = () => {
       name: "id",
       selector: (row) => row._id,
       sortable: true,
+      omit: true,
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
+      name: "Name Of Hospital",
+      selector: (row) => row.hospital_name,
+      sortable: true,
+    },
+    {
+      name: "Head Of Hospital",
+      selector: (row) => row.user.name,
       sortable: true,
     },
     {
       name: "Type",
       selector: (row) => row.type,
+    },
+    {
+      name: "Email",
+      selector: (row) => row.user.email,
+      sortable: true,
     },
   ]);
 

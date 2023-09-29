@@ -1,8 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Search from "./Search";
+import { getCurrentUser, getUserState } from "../redux/feature/user";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const { isSidebarOpen } = useSelector((state) => state.Sidebar);
+  const user = useSelector(getCurrentUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    return () => dispatch(getUserState());
+  }, []);
   return (
     <header
       id="navbar"
@@ -20,7 +27,7 @@ const Navbar = () => {
           src="../src/assets/images/profil-photo.jpg"
           alt="profile-photo"
         />
-        <h3>Hopital central</h3>
+        <h3>{user.name}</h3>
       </div>
     </header>
   );

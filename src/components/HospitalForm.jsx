@@ -13,7 +13,7 @@ const HospitalForm = () => {
   const methods = useForm({
     defaultValues: {
       hospital_name: "dfdfd",
-      head_of_hospital: "Royce",
+      name: "Royce",
       type: "District",
       email: "test@gmail.com",
       phone_number: "671274012",
@@ -58,9 +58,9 @@ const HospitalForm = () => {
 
           <FormInput
             label="head of hospital"
-            name="head_of_hospital"
+            name="name"
             type="text"
-            id="head_of_hospital"
+            id="name"
             placeholder="Enter Head of Hospital..."
             validation={{
               required: {
@@ -98,6 +98,20 @@ const HospitalForm = () => {
               pattern: {
                 value: /^6(5|7|8|9)[0-9]{7}$/,
                 message: "Enter a cameroonian number",
+              },
+            }}
+          />
+
+          <FormInput
+            label="Matricule Number"
+            name="matricule_number"
+            type="text"
+            id="matricule_number"
+            placeholder="Enter matricule number..."
+            validation={{
+              required: {
+                value: true,
+                message: "required",
               },
             }}
           />

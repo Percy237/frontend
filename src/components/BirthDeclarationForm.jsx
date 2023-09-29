@@ -14,7 +14,9 @@ const BirthDeclarationForm = () => {
             <BirthDeclarationInput
               type="text"
               label="Child Fullname"
+              name="child_name"
               inputWidth="87%"
+              isRequired={false}
             />
             <div className="flex">
               <div className="flex-1">

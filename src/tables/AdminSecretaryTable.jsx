@@ -46,7 +46,7 @@ const AdminSecretaryTable = () => {
   const columns = useMemo(() => [
     {
       name: "Name",
-      selector: (row) => row.name,
+      selector: (row) => row.user.name,
       sortable: true,
     },
     {
@@ -56,7 +56,11 @@ const AdminSecretaryTable = () => {
     },
     {
       name: "Matricule Number",
-      selector: (row) => row.matricule_number,
+      selector: (row) => row.user.matricule_number,
+    },
+    {
+      name: "Email",
+      selector: (row) => row.user.email,
     },
   ]);
 
@@ -101,7 +105,7 @@ const AdminSecretaryTable = () => {
   return (
     <div className="mt-5">
       <div className="flex justify-end">
-        <NavLink to="/create-hospital-account">
+        <NavLink to="/create-secretary-account">
           <div className="bg-green rounded-md flex justify-center items-center h-10 p-2 cursor-pointer shadow-xl hover:bg-dark-blue hover:text-white ">
             <FaPlus />
             <p>Create Secretary</p>

@@ -1,15 +1,40 @@
 import { FormProvider } from "react-hook-form";
 import { FormInput } from "./FormInput";
 import { useForm } from "react-hook-form";
+import { login } from "../api/authAPI";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../redux/feature/user";
 
 const LoginForm = () => {
-  const methods = useForm();
-  const onSubmit = methods.handleSubmit((data) => {
-    console.log(data);
-    methods.reset();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const methods = useForm({
+    defaultValues: {
+      email: "percy@gmail.com",
+      password: "@Tsembompercy123",
+    },
+  });
+  const onSubmit = methods.handleSubmit(async (data) => {
+    try {
+      let response = await dispatch(userLogin(data)).unwrap();
+      console.log(response.data.user.role);
+      toast.success("Login successful", { autoClose: 3000 });
+      setTimeout(() => {
+        response.data.user.role
+          ? navigate(`/${response.data.user.role}`)
+          : toast.error("An error occurred");
+      }, 3000);
+      methods.reset();
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred");
+    }
   });
   return (
     <FormProvider {...methods}>
+      <ToastContainer />
       <form onSubmit={(e) => e.preventDefault()} autoComplete="off" noValidate>
         <FormInput
           label="email"
