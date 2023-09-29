@@ -1,4 +1,5 @@
 import TotalCard from "../components/TotalCard";
+import AdminSecretaryTable from "../tables/AdminSecretaryTable";
 import SecretaryBirthCertificateTable from "../tables/SecretaryBirthCertificateTable";
 
 const AdminSecretary = () => {
@@ -8,7 +9,7 @@ const AdminSecretary = () => {
         <TotalCard total="100" text="Total Secretary" />
       </div>
       <div>
-        <SecretaryBirthCertificateTable/>
+        <AdminSecretaryTable />
       </div>
     </div>
   );

@@ -4,10 +4,10 @@ import { useMemo } from "react";
 import DataTable from "react-data-table-component";
 import { FaPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import { getAllHospitals } from "../api/hospitalApi";
+import { getAllSecretaries } from "../api/secretaryAPI";
 import CircularIndeterminate from "../components/Progress";
 
-const SecretaryListOfHospitals = () => {
+const AdminSecretaryTable = () => {
   const data = [
     {
       id: "ID983732",
@@ -29,7 +29,7 @@ const SecretaryListOfHospitals = () => {
   const [pending, setPending] = useState(true);
 
   const test = async () => {
-    setHospitalList(await getAllHospitals());
+    setSecretaries(await getAllSecretaries());
   };
 
   useEffect(() => {
@@ -45,18 +45,18 @@ const SecretaryListOfHospitals = () => {
 
   const columns = useMemo(() => [
     {
-      name: "id",
-      selector: (row) => row._id,
+      name: "Name",
+      selector: (row) => row.name,
       sortable: true,
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
+      name: "council",
+      selector: (row) => row.council,
       sortable: true,
     },
     {
-      name: "Type",
-      selector: (row) => row.type,
+      name: "Matricule Number",
+      selector: (row) => row.matricule_number,
     },
   ]);
 
@@ -66,7 +66,7 @@ const SecretaryListOfHospitals = () => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [toggleCleared, setToggleCleared] = useState(false);
   const [records, setRecords] = useState(data);
-  const [hospitalList, setHospitalList] = useState([]);
+  const [secretaries, setSecretaries] = useState([]);
 
   const handleRowSelected = useCallback((state) => {
     setSelectedRows(state.selectableRows);
@@ -104,14 +104,14 @@ const SecretaryListOfHospitals = () => {
         <NavLink to="/create-hospital-account">
           <div className="bg-green rounded-md flex justify-center items-center h-10 p-2 cursor-pointer shadow-xl hover:bg-dark-blue hover:text-white ">
             <FaPlus />
-            <p>Create Hospital</p>
+            <p>Create Secretary</p>
           </div>
         </NavLink>
       </div>
       <DataTable
-        title="All Hospitals"
+        title="All Secretaries"
         columns={columns}
-        data={hospitalList}
+        data={secretaries}
         selectableRows
         contextActions={contextActions}
         onSelectedRowsChange={handleRowSelected}
@@ -124,4 +124,4 @@ const SecretaryListOfHospitals = () => {
   );
 };
 
-export default SecretaryListOfHospitals;
+export default AdminSecretaryTable;

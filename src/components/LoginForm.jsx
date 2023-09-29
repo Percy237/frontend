@@ -6,6 +6,7 @@ const LoginForm = () => {
   const methods = useForm();
   const onSubmit = methods.handleSubmit((data) => {
     console.log(data);
+    methods.reset();
   });
   return (
     <FormProvider {...methods}>

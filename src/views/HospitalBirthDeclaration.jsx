@@ -1,4 +1,5 @@
 import TotalCard from "../components/TotalCard";
+import HospitalBirthDeclarationTable from "../tables/HospitalBirthDeclarationTable";
 import HospitalDashboardtable from "../tables/HospitalDashboardtable";
 
 const HospitalBirthDeclaration = () => {
@@ -7,7 +8,7 @@ const HospitalBirthDeclaration = () => {
       <div className="flex w-full gap-x-2 ">
         <TotalCard total="100" text="Total Birth Declaration" />
       </div>
-      <HospitalDashboardtable />
+      <HospitalBirthDeclarationTable />
     </div>
   );
 };

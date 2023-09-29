@@ -5,7 +5,7 @@ import { FaPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useMemo } from "react";
 
-const HospitalDashboardtable = () => {
+const HospitalBirthDeclarationTable = () => {
   const columns = useMemo(() => [
     {
       name: "Child's Name",
@@ -17,10 +17,7 @@ const HospitalDashboardtable = () => {
       selector: (row) => row.mobileNumber,
       sortable: true,
     },
-    {
-      name: "Type",
-      selector: (row) => row.type,
-    },
+
     {
       name: "Status",
       selector: (row) => row.status,
@@ -193,4 +190,4 @@ const HospitalDashboardtable = () => {
   );
 };
 
-export default HospitalDashboardtable;
+export default HospitalBirthDeclarationTable;

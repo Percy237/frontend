@@ -23,6 +23,7 @@ import HospitalDashboardtable from "./tables/HospitalDashboardtable";
 import AdminLayout from "./layouts/AdminLayout";
 import AdminDashboard from "./views/AdminDashboard";
 import AdminSecretary from "./views/AdminSecretary";
+import CreateSecretary from "./views/CreateSecretary";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/create-hospital-account",
     element: <CreateHospitalAccount />,
+  },
+  {
+    path: "/create-secretary-account",
+    element: <CreateSecretary />,
   },
   {
     path: "create-civil-registrar-account",

@@ -5,20 +5,30 @@ import { useState } from "react";
 import { BsFillCheckSquareFill } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { createCivilRegistrar } from "../api/civilRegistrarAPI";
+import { CreateSecretary } from "../api/secretaryAPI";
 import { useNavigate } from "react-router";
-import CreateCivilRegistrar from "../views/CreateCivilRegistrar";
 
-const RegistrarForm = () => {
+const SecretaryForm = () => {
   const navigate = useNavigate();
-  const methods = useForm();
+  const methods = useForm({
+    defaultValues: {
+      name: "Tsembom",
+      council: "Mbalmayo council",
+      matricule_number: "1234456",
+      email: "test@gmail.com",
+      phone_number: "671274012",
+      region: "Center",
+      division: "Mbalmayo",
+      sub_division: "Test",
+    },
+  });
 
   const onSubmit = methods.handleSubmit(async (data) => {
     try {
-      await createCivilRegistrar(data);
+      await CreateSecretary(data);
       toast.success("Secretary account created", { autoClose: 3000 });
       setTimeout(() => {
-        navigate("/secretary/civil-registrar");
+        navigate("/admin/secretary");
       }, 3000);
       methods.reset();
     } catch (error) {
@@ -191,4 +201,4 @@ const RegistrarForm = () => {
   );
 };
 
-export default RegistrarForm;
+export default SecretaryForm;

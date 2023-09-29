@@ -4,7 +4,8 @@ import TotalCard from "../components/TotalCard";
 import DemographicCard from "../components/DemographicCard";
 import PieChartCustomizedLabel from "../components/PieChartCustomizedLabel.jsx";
 import SimpleLineChart from "../components/SimpleLineChart";
-import List from "../components/List";
+import HospitalDashboardtable from "../tables/HospitalDashboardtable";
+
 
 const HospitalDashboard = () => {
   return (
@@ -58,7 +59,7 @@ const HospitalDashboard = () => {
           </div>
         </div>
       </div>
-      <List />
+      <HospitalDashboardtable />
     </div>
   );
 };
