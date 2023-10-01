@@ -1,0 +1,113 @@
+{
+  "birth_declaration_date": "2023-10-02",
+  "child_dob": "2023-10-01",
+  "child_pob": "Mbalmayo",
+  "child_sex": "Male",
+  "father_dob": "2023-10-17",
+  "father_name": "Samuel Etoo",
+  "father_occupation": "Footballer",
+  "father_pob": "Yaounde",
+  "father_reference_document": "u120u309u09",
+  "father_resident_at": "Paris",
+  "marriage_certificate_drawn_up_date": "2023-10-01",
+  "marriage_certificate": "acte12344",
+  "marriage_certificate_civil_registry": "Yaounde",
+  "mother_dob": "2023-10-11",
+  "mother_name": "Georgette",
+  "mother_occupation": "Footballer",
+  "mother_pob": "Paris",
+  "mother_reference_document": "alksdjlkjakfdj",
+  "mother_resident_at": "Paris",
+  "name_of_child": "Tsembom Percy Linkwe"
+}
+
+  name_of_child: {
+    type: String,
+    required: true,
+  },
+  child_dob: {
+    type: String,
+    required: true,
+  },
+  child_pob: {
+    type: String,
+    required: true,
+  },
+  child_sex: {
+    type: String,
+    required: true,
+  },
+  father_name: {
+    type: String,
+    required: true,
+  },
+  father_pob: {
+    type: String,
+    required: false,
+  },
+  father_dob: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  father_resident_at: {
+    type: String,
+    required: true,
+  },
+  father_occupation: {
+    type: String,
+    required: true,
+  },
+  father_reference_document: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  mother_name: {
+    type: String,
+    required: true,
+  },
+  mother_pob: {
+    type: String,
+    required: false,
+  },
+  mother_dob: {
+    type: String,
+    required: true,
+  },
+  mother_resident_at: {
+    type: String,
+    required: true,
+  },
+  mother_occupation: {
+    type: String,
+    required: true,
+  },
+  mother_reference_document: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+
+  marriage_certificate: {
+    type: String,
+    unique: true,
+  },
+  marriage_certificate_drawn_up_date: {
+    type: String,
+  },
+  marriage_certificate_civil_registry: {
+    type: String,
+  },
+  birth_declaration_date: {
+    type: String,
+  },
+  hospital_name: {
+    type: String,
+  },
+  head_of_hospital: {
+    type: String,
+  },
+  status: {
+    type: String,
+  },

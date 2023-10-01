@@ -10,6 +10,7 @@ export const BirthDeclarationInput = ({
   labelwidth,
   inputWidth,
   name,
+  validation,
 }) => {
   const {
     register,
@@ -31,12 +32,7 @@ export const BirthDeclarationInput = ({
         type={type}
         style={{ width: inputWidth }}
         className="border-b-2 border-dashed outline-none italic"
-        {...register(name, {
-          required: {
-            value: true,
-            message: "required",
-          },
-        })}
+        {...register(name, validation)}
       />
       <AnimatePresence mode="wait" initial={false}>
         {isInvalid && (
@@ -73,5 +69,6 @@ BirthDeclarationInput.propTypes = {
   labelwidth: PropTypes.string,
   inputWidth: PropTypes.string,
   type: PropTypes.string,
+  validation: PropTypes.object,
   name: PropTypes.string,
 };
